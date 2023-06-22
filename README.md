@@ -1,12 +1,15 @@
 # OurShop
 E-Commerce Website with Django + Reactjs
-<h1 align=center>E-Commerce Website with Django + Reactjs</h1>
 
 ###to run project
+
 #run django 
 -.\env\Scripts\activate
+
 -cd ecommerceback
+
 -pip install -r requirements.txt
+
 -python manage.py runserver
 
 
