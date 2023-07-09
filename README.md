@@ -1,4 +1,4 @@
-# OurShop
+# OurShop sara and tasnim
 E-Commerce Website with Django + Reactjs
 
 ###to run project
