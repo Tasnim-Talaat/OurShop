@@ -79,11 +79,12 @@ export default function Navbar() {
         {isLogin?
         <div className="dropdown px-3">
  <Link className="btn  dropdown-toggle text-white" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- {localStorage.getItem("name")} 
+ {localStorage.getItem("email")} 
  </Link>
 
   <ul className="dropdown-menu">
     <li><Link className="dropdown-item" to="myorder">My Order</Link></li>
+    <li><Link className="dropdown-item" to="edit">Edit Profie</Link></li>
     <li><Link className="dropdown-item" to="/" onClick={LogOut}>Logout</Link></li>
   </ul>
 </div>

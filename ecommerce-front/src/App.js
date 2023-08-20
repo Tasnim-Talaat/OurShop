@@ -32,6 +32,7 @@ import ListOrder from './order/ListOrder';
 import MyOrder from './order/MyOrder';
 import Orders from './order/Orders';
 import Contact from './Component/ContactUs/ContactUs';
+import EditProfie from './Component/EditProfie/EditProfie';
 
 
 
@@ -50,6 +51,7 @@ function App() {
       {path:'collection', element:<Collection />},
       {path:'listproduct', element:<ListProduct />},
       {path:'userlist/edit/:id', element:<EditUser />},
+      {path:'edit/', element:<EditProfie />},
       {path:'listuser', element:<ListUser />},
       {path:'adduser', element:<AddUser />},
       

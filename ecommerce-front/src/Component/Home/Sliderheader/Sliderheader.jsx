@@ -44,7 +44,7 @@ export default function Sliderheader() {
                 <Link to={`/productlist/${pro.id}`}>
 
                 <div className='d-flex justify-content-center align-items-center   '>
-                  <img className='w-75 card-img rounded-circle' src={"http://localhost:8000" + pro.image} alt=''  />
+                  <img className='w-50 card-img rounded-circle' src={"http://localhost:8000" + pro.image} alt=''  />
                 </div>
                 </Link>
               </div>

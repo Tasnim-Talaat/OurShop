@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import  Axios  from 'axios'
-import { useNavigate,useParams} from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
 
-export default function EditUser() {
+export default function EditProfie() {
 
-        const params=useParams()
+        const params=localStorage.getItem('id')
         const [user,setUser]=useState('')
         const [myUser,setMyUser]=useState('')
         const [username,setusername]=useState('')
         const [fname,setfname]=useState('')
         const [email,setEmial]=useState('')
-        const [isAdmin,setIsAdmin]=useState(false)
         const [password,setPassword]=useState(0)
         
         let navigate=useNavigate()
@@ -20,18 +19,15 @@ export default function EditUser() {
           },
         };
         async function getUser(){
-          const {data}=await Axios.get(`http://localhost:8000/user/userId/${params.id}/`,config)
-          // console.log('dddd',data)
+          const {data}=await Axios.get(`http://localhost:8000/user/userId/${params}/`,config)
           setMyUser(data[0])
   }
 
               async function editUser(){
                 try{
-             const {data}=await Axios.put(`http://localhost:8000/user/updateuser/${params.id}/`,{username:email,email:username,first_name:fname,password:password,isAdmin:isAdmin,is_superuser:isAdmin},config)
+             const {data}=await Axios.put(`http://localhost:8000/user/updateuser/`,{username:email,email:username,first_name:fname,password:password},config)
              setUser(data)
-              // console.log(data)
-              // console.log(isAdmin)
-                      // getUser()
+              
                 }
                 catch(error){
                   console.log(error.response.data)
@@ -46,8 +42,8 @@ export default function EditUser() {
         const formSubmit=(e)=>{
           e.preventDefault()
           editUser()
-          getUser()
-                navigate('/listuser')
+         
+                navigate('/')
               }
   return <>
   <div className="container py-5">
@@ -70,12 +66,8 @@ export default function EditUser() {
             <div className="pass">
             <label htmlFor="password">Password:</label>
         <input type="password" name='password' id='password' placeholder='********' className='form-control mb-3'  onChange={(e)=>setPassword(e.target.value)} required/>
-        <input type="radio" name='isAdmin' id='isAdmin' value='1' className='me-1'  onChange={(e)=>setIsAdmin(e.target.value)}  />
-            <label htmlFor="isAdmin">IsAdmin</label>
-        <input type="radio" name='isAdmin' id='isAdmin' value='0' className='ms-5 me-1'  onChange={(e)=>setIsAdmin(e.target.value)}  />
-            <label htmlFor="isAdmin">user</label>
             </div>
-            {console.log(isAdmin)}
+            
       <button className='btn btn-primary my-5'>Edit User</button>
       </form>
     </div>

@@ -47,7 +47,7 @@ export default function MyOrder() {
       <td>{o.total_price}</td>
       <td>{o.is_paid ? <i className='fa-solid fa-check text-success'></i> :<i className='fa-solid fa-xmark text-danger'></i>}</td>
       <td>{o.is_delivered ? <i className='fa-solid fa-check text-success'></i> :<i className='fa-solid fa-xmark text-danger'></i>}</td>
-      <td>{o.status }</td>
+      <td>{o.is_paid && o.is_delivered?'deliverd':o.is_paid?'shipped':o.status}</td>
       
       <td>      <Link className='btn btn-info' to={`/order/${o.id}`}>view</Link>
 </td>
